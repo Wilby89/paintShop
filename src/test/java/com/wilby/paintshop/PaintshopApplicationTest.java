@@ -54,5 +54,25 @@ public class PaintshopApplicationTest{
 		assertEquals("G G G G M", output);
 	}
 	
+	@Test
+	public void test3cus3col_possible() throws Exception {
+
+		File file = new File(classLoader.getResource(inputFilesFolder 
+				+ "3Cus3Col.txt").toURI());
+		String output = paintShop.readFile(file.toString());
+		
+		assertEquals("M M M", output);
+	}
+	
+	@Test
+	public void test2cus5col_possible() throws Exception {
+
+		File file = new File(classLoader.getResource(inputFilesFolder 
+				+ "2Cus5Col.txt").toURI());
+		String output = paintShop.readFile(file.toString());
+		
+		assertEquals("G G G M G", output);
+	}
+	
 	
 }

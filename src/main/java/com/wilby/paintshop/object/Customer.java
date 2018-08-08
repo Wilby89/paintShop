@@ -7,10 +7,10 @@ import java.util.Map;
 
 public class Customer {
 	
-	private int colour;
-	private Finish finish;
+	private int matteColour = -1;
 	
 	private List<Paint> paintPrefs = new ArrayList<Paint>();
+	private List<Paint> matteAlternatives = new ArrayList<Paint>();
 	
 	public void addPaintPref(int colour, Finish finish) {		
 		Paint newPaint = new Paint(colour, finish);
@@ -27,5 +27,31 @@ public class Customer {
 	
 	public String toString() {
 		return "Customer " + getPaintPrefs();
+	}
+	
+	public void setMatteStatus() {
+		for (Paint p : getPaintPrefs()) {
+			if (p.getFinish().equals(Finish.MATTE)) {
+				matteColour = p.getColour();
+			}
+		}
+	}
+	
+	public int getMatteColour() {
+		return matteColour;
+	}
+	
+	public void setMatteAlternatives() {
+		if (matteColour != -1) {
+			for (Paint p : getPaintPrefs()) {
+				if (!p.getFinish().equals(Finish.MATTE)) {
+					matteAlternatives.add(p);
+				}
+			}
+		}		
+	}
+	
+	public List<Paint> getMatteAlternatives() {
+		return matteAlternatives;
 	}
 }

@@ -30,7 +30,7 @@ public class PaintshopApplication
         String fileName = args[0]; 
         PaintshopApplication app = new PaintshopApplication();
         String result = app.readFile(fileName);
-        System.out.println("Result is " + result);
+        System.out.println(result);
     }
     
 	public String readFile(String path) {
@@ -64,6 +64,8 @@ public class PaintshopApplication
 		for (int i = 0; i < custDetails.length; i+=2) {
 			cust.addPaintPref(Integer.parseInt(custDetails[i]), Finish.getFinish(custDetails[i+1]));
 		}
+		cust.setMatteStatus();
+		cust.setMatteAlternatives();
 		return cust;
 	}
 }

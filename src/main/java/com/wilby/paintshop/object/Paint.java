@@ -29,6 +29,5 @@ public class Paint {
 	
 	public String toString() {
 		return "Paint[" + colour + "," + finish + "]";
-	}
-	
+	}	
 }
